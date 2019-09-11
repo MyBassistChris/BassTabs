@@ -1,0 +1,9 @@
+<h1><%=artist%></h1>
+
+<ul>
+    <% songs.forEach(function(song) { %>
+        <% var songUrl = artist.replace(/ /g, "") + "/" + song.slice(0,-5); %>
+        <% var songTitle = song.slice(0, -14).replace(/-/g, " ");; %>
+        <li><a href=<%= songUrl %>><%= songTitle %></a></li> <!-- Replace all with /phrase/g -->
+    <% }); %>
+</ul>

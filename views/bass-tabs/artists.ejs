@@ -1,0 +1,11 @@
+<!-- Load dynamically -->
+<h1>Artists</h1>
+ 
+<ul id="artists">
+ 
+  <% artists.forEach(function(artist){ %>
+    <% var artistUrl = artist.replace(/ /g, ""); %>
+    <li><a href="/bass-tabs/<%= artistUrl %>"><%= artist %></a></li>
+  <% }); %>
+  
+</ul>
