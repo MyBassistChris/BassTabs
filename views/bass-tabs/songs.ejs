@@ -1,9 +1,21 @@
-<h1><%=artist%></h1>
+<% include ../partials/header %>
 
-<ul>
+<!--Temporarily workaround to load main.css-->
+<head>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
+</head>
+
+<br>
+<h1><%=artist%></h1>
+<br>
+
+<div class="list-group">
     <% songs.forEach(function(song) { %>
         <% var songUrl = artist.replace(/ /g, "") + "/" + song.slice(0,-5); %>
         <% var songTitle = song.slice(0, -14).replace(/-/g, " ");; %>
-        <li><a href=<%= songUrl %>><%= songTitle %></a></li> <!-- Replace all with /phrase/g -->
+        <a class="list-group-item" href=<%= songUrl %>><%= songTitle %></a> <!-- Replace all with /phrase/g -->
     <% }); %>
-</ul>
+</div>
+<br>
+
+<% include ../partials/footer %>

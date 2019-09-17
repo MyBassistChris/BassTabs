@@ -1,27 +1,49 @@
 body {
-  font-family: "impact", charcoal, sans-serif;
+  font-family: 'Squada One', cursive;
 }
 
 ul {
 display: inline-block;
 }
 
+/* Custom Classes */ 
+
+.banner {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  opacity: 0.9;
+}
+
 .coming-soon {
+  background-color: #FFFFFF;
   width: 30%;
   color: inherit;
   margin-left: auto;
   margin-right: auto;
 }
 
-.even {
-  background-color: #FFFFFF;
+.footer {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  text-align: center;
+  background-color: #373737;
 }
 
-.odd {
+.home {
+  padding-top: 50px;
+  padding-bottom: 70px;
+  opacity: 0.9;
   background-color: #46b976;
 }
 
-/* Add a black background color to the top navigation */
+
+
+/* Bootstrap */ 
+
+.navbar-collapse {
+  background-color: #373737;
+}
+
 .topnav {
   overflow: hidden;
   width: 100%;
@@ -49,24 +71,10 @@ display: inline-block;
   color: white;
 }
 
-.banner {
-  padding-top: 70px;
-  padding-bottom: 70px;
-  opacity: 0.9;
-}
-
-.home {
-  padding-top: 50px;
-  padding-bottom: 70px;
-  opacity: 0.9;
-}
 
 
-.footer {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  text-align: center;
-}
+
+/* Social Media */
 
 .fa {
   padding: 18px;

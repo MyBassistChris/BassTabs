@@ -61,6 +61,7 @@ app.get("/bass-tabs/:artist", function(req, res) {
 
 //Tab Route
 app.get("/bass-tabs/:artist/:song", function(req,res) {
+    console.log("Hello");
     var fs = require('fs');
     var path = require('path');
     var artistName = req.params.artist
@@ -82,7 +83,7 @@ app.get("/bass-tabs/:artist/:song", function(req,res) {
     };
 
     //Load bass tab into HTML Template tab
-    res.render("bass-tabs/tab", {songPath: songPath, songName, songName})
+    res.render("bass-tabs/tab", {artistName: directoryName, songPath: songPath, songName, songName})
 });
 
 //Gear Page

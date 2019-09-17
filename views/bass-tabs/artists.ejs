@@ -1,11 +1,35 @@
-<!-- Load dynamically -->
-<h1>Artists</h1>
- 
-<ul id="artists">
- 
-  <% artists.forEach(function(artist){ %>
-    <% var artistUrl = artist.replace(/ /g, ""); %>
-    <li><a href="/bass-tabs/<%= artistUrl %>"><%= artist %></a></li>
-  <% }); %>
-  
-</ul>
+<% include ../partials/header %>
+
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <h1>Artists</h1>
+        <div class="list-group" id="artists">
+            <input class="form-control" id="myInput" type="text" placeholder="Search...">
+            <br>
+            <% artists.forEach(function(artist){ %>
+              <% var artistUrl = artist.replace(/ /g, ""); %>
+              <a class="list-group-item" href="/bass-tabs/<%= artistUrl %>"><%= artist %></a>
+            <% }); %>
+        </div>
+        <br>
+        <br>
+    </div>
+    <div class="col-1"></div>
+</div>
+<% include ../partials/footer %>
+
+
+
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#artists a").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>

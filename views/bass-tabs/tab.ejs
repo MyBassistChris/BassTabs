@@ -1,9 +1,27 @@
-<h1><%=songName %></h1>
+<% include ../partials/header %>
 
-<div style="width:100%;overflow:auto;white-space:nowrap;font-size:small;line-height:normal"><font face="courier new, monospace">
+<!--Temporarily workaround to load main.css-->
+<head>
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
+</head>
 
-<div id="tab">
-    <%- include(songPath) %>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <h1><%=artistName%></h1>
+        <br>
+        <h1><%=songName%></h1>
+        <br>
+        
+        <div style="width:100%;overflow:auto;white-space:nowrap;font-size:small;line-height:normal"><font face="courier new, monospace">
+        
+        <div id="tab">
+            <%- include(songPath) %>
+        </div>
+        
+        </font></div>
+    </div>
+    <div class="col-1"></div>
 </div>
 
-</font></div>
+<% include ../partials/footer %>
