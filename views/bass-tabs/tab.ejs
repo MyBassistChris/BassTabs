@@ -8,8 +8,7 @@
 <div class="row">
     <div class="col-1"></div>
     <div class="col-10">
-        <h1><%=artistName%></h1>
-        <br>
+        <h3><%=artistName%></h3>
         <h1><%=songName%></h1>
         <br>
         
@@ -25,3 +24,14 @@
 </div>
 
 <% include ../partials/footer %>
+
+<script>
+
+$(document).ready(function() {
+    document.title = "<%=songName%>";
+    var videoUrl = document.querySelector(".video").innerHTML;
+    //document.querySelector(".video").innerHTML = "<iframe width=\"560\" height=\"315\" src=" + videoUrl + " frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+    document.querySelector(".video").innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + videoUrl + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+});
+
+</script>
