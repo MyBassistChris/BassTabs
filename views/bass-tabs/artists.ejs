@@ -12,7 +12,7 @@
             <input class="form-control" id="myInput" type="text" placeholder="Search...">
             <br>
             <% artists.forEach(function(artist){ %>
-              <% var artistUrl = artist.replace(/ /g, ""); %>
+              <% var artistUrl = artist.replace(/ /g, "").toLowerCase(); %>
               <a class="list-group-item" href="/bass-tabs/<%= artistUrl %>"><%= artist %></a>
             <% }); %>
         </div>

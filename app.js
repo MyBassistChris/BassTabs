@@ -42,7 +42,7 @@ app.get("/bass-tabs/:artist", function(req, res) {
         }
         for (var i=0; i < artists.length; i++) {
             directoryName = artists[i];
-            if (directoryName.replace(/ /g, "") == artistName.toString()) {
+            if (directoryName.replace(/ /g, "").toLowerCase() == artistName.toString()) {
                 artistPath = "views/bass-tabs/artists/" + directoryName;
 
                 //Return list of songs from the artist
@@ -76,7 +76,7 @@ app.get("/bass-tabs/:artist/:song", function(req,res) {
         directoryName = artists[i];
         if (directoryName.replace(/ /g, "") == artistName) {
             var hyphenatedSong = songName.replace(/ /g, "-")
-            songPath = "artists/" + directoryName + "/" + hyphenatedSong + "-Bass-Tab.html";   //EX: artists/The 1975/Settle-Down-Bass-Tab.html
+            songPath = "artists/" + directoryName + "/" + hyphenatedSong + "-bass-tab.html";   //EX: artists/The 1975/Settle-Down-Bass-Tab.html
             break;
         };
     };
