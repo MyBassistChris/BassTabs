@@ -1,4 +1,7 @@
 <% include ../partials/header %>
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+    <title>Bass Tabs</title>
+<% include ../partials/navbar %>
 
 
 <div class="row">
@@ -24,10 +27,6 @@
 
 
 <script>
-$(document).ready(function() {
-    document.title = "Bass Tabs";
-});
-
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {
     var value = $(this).val().toLowerCase();

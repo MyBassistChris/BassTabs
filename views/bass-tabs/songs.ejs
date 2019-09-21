@@ -1,22 +1,24 @@
 <% include ../partials/header %>
-
-<!--Temporarily workaround to load main.css-->
-<head>
     <link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
-</head>
+    <title>My Bassist Chris</title>
+<% include ../partials/navbar %>
 
-<br>
-<h1><%=artist%></h1>
-<br>
-
-<div class="list-group">
-    <% songs.forEach(function(song) { %>
-        <% var songUrl = artist.replace(/ /g, "") + "/" + song.slice(0,-5); %>
-        <% var songTitle = song.slice(0, -14).replace(/-/g, " ");; %>
-        <a class="list-group-item" href=<%= songUrl %>><%= songTitle %></a> <!-- Replace all with /phrase/g -->
-    <% }); %>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <br>
+        <h1><%=artist%></h1>
+        <br>
+        <div class="list-group">
+            <% songs.forEach(function(song) { %>
+                <% var songUrl = artist.replace(/ /g, "") + "/" + song.slice(0,-5); %>
+                <% var songTitle = song.slice(0, -14).replace(/-/g, " ");; %>
+                <a class="list-group-item" href=<%= songUrl %>><%= songTitle %></a> <!-- Replace all with /phrase/g -->
+            <% }); %>
+        </div>
+    </div>
+    <div class="col-1"></div>
 </div>
-<br>
 
 <% include ../partials/footer %>
 

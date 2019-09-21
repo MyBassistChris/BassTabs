@@ -1,9 +1,7 @@
 <% include ../partials/header %>
-
-<!--Temporarily workaround to load main.css-->
-<head>
     <link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
-</head>
+    <title><%=songName%></title>
+<% include ../partials/navbar %>
 
 <div class="row">
     <div class="col-1"></div>
@@ -29,9 +27,8 @@
 
 $(document).ready(function() {
     document.title = "<%=songName%>";
-    var videoUrl = document.querySelector(".video").innerHTML;
-    //document.querySelector(".video").innerHTML = "<iframe width=\"560\" height=\"315\" src=" + videoUrl + " frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
-    document.querySelector(".video").innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + videoUrl + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+    var videoUrl = document.querySelector(".videoUrl").innerHTML;
+    document.querySelector(".videoUrl").innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + videoUrl + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
 });
 
 </script>
