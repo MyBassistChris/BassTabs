@@ -1,19 +1,37 @@
 <% include ../partials/header %>
     <link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
-    <title><%=songName%></title>
+    <title><%=songName%> Bass Tab</title>
 <% include ../partials/navbar %>
 
 <div class="row">
     <div class="col-1"></div>
     <div class="col-10">
-        <h3><%=artistName%></h3>
-        <h1><%=songName%></h1>
-        <br>
-        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 30%"></th>
+                    <th scope="col"></th>
+                </tr>
+            <tbody>
+            </thead>
+                    <th scope="row">Song: </th>
+                    <td><%=songName%></td>
+                </tr>
+                <tr>
+                    <th scope="row">Artist:</th>
+                    <td><%=artistName%></td>
+                </tr>
+                <tr>
+                    <th scope="row">Tuning:</th>
+                    <td id="tuning">Standard: E A D G</td>
+                </tr>
+            </tbody>
+        </table>
+
         <div style="width:100%;overflow:auto;white-space:nowrap;font-size:small;line-height:normal"><font face="courier new, monospace">
         
         <div id="tab">
-            <%- include(songPath) %>
+            <%- include(filePath) %>
         </div>
         
         </font></div>
@@ -26,9 +44,10 @@
 <script>
 
 $(document).ready(function() {
-    document.title = "<%=songName%>";
     var videoUrl = document.querySelector(".videoUrl").innerHTML;
     document.querySelector(".videoUrl").innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + videoUrl + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+    document.querySelector("#tuning").innerHTML = document.querySelector(".tuning").innerHTML;
+    document.querySelector(".tuning").innerHTML = "";
 });
 
 </script>

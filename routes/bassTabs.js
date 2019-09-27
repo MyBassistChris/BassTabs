@@ -51,28 +51,24 @@ router.get("/:artist", function(req, res) {
 router.get("/:artist/:song", function(req,res) {
     var fs = require('fs');
     var path = require('path');
-    var artistName = req.params.artist
+    var artistUrl = req.params.artist
     var songName = req.params.song.slice(0, -9).replace(/-/g, " ");
-    var songPath;
-    var directoryName;
-    var artistPath;
+    var filePath, directoryName, artistName;
     
     
     //Get Tab Path using artist URL with no spaces
     var artists = fs.readdirSync("views/bass-tabs/artists");
     for (var i=0; i < artists.length; i++) {
-        directoryName = artists[i];
-        if (directoryName.replace(/ /g, "") == artistName) {
+        directoryName = artists[i].replace(/ /g, "").toLowerCase();
+        if (directoryName == artistUrl) {
+            artistName = artists[i];
             var hyphenatedSong = songName.replace(/ /g, "-")
-            songPath = "artists/" + directoryName + "/" + hyphenatedSong + "-bass-tab.html";   //EX: artists/The 1975/Settle-Down-Bass-Tab.html
+            filePath = "artists/" + artistName + "/" + hyphenatedSong + "-bass-tab.html";  //Path used to open file EX: artists/The 1975/Settle-Down-Bass-Tab.html
             break;
         };
     };
-    
-    songName = songName + " Bass Tab";
-    
     //Load bass tab into HTML Template tab
-    res.render("bass-tabs/tab", {artistName: directoryName, songPath: songPath, songName, songName})
+    res.render("bass-tabs/tab", {artistName: artistName, filePath: filePath, songName, songName})
 });
 
 module.exports = router;
