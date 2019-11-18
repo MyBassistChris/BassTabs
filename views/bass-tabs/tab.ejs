@@ -44,10 +44,10 @@
 <script>
 
 $(document).ready(function() {
-    var videoUrl = document.querySelector(".videoUrl").innerHTML;
-    document.querySelector(".videoUrl").innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + videoUrl + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
     document.querySelector("#tuning").innerHTML = document.querySelector(".tuning").innerHTML;
     document.querySelector(".tuning").innerHTML = "";
+    var videoUrl = document.querySelector(".videoUrl").innerHTML;
+    document.querySelector(".videoUrl").innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + videoUrl + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
 });
 
 </script>
