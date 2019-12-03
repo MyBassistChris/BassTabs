@@ -15,9 +15,14 @@ app.get("/", function(req, res) {
 
 app.use("/bass-tabs", bassTabRoute);
 
+//Top 10 Bass
+app.get("/top-10-bass", function(req,res) {
+    res.render("Top 10 Bass/top-10-bass")
+})
+
 //Gear Page
 app.get("/gear", function(req,res) {
-    res.render("gear/gear");
+    res.render("Gear/gear");
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){
