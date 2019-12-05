@@ -1,6 +1,6 @@
 <% include ../partials/header %>
     <link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
-    <title><%=songName%> Bass Tab</title>
+    <title><%= song.songTitle %> Bass Tab</title>
 <% include ../partials/navbar %>
 
 <div class="row">
@@ -15,11 +15,11 @@
             <tbody>
             </thead>
                     <th scope="row">Song: </th>
-                    <td><%=songName%></td>
+                    <td><%= song.songTitle.slice(0,-9) %></td>
                 </tr>
                 <tr>
                     <th scope="row">Artist:</th>
-                    <td><%=artistName%></td>
+                    <td><%= song.artist %></td>
                 </tr>
                 <tr>
                     <th scope="row">Tuning:</th>

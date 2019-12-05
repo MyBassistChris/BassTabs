@@ -1,74 +1,59 @@
 var express = require("express");
 var router = express.Router();
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb+srv://Admin:guitar66@basstabs-gf3pp.mongodb.net/test?retryWrites=true&w=majority";
 
 //List of Bass Tabs/Artists
-router.get("/", function(req,res) {
-    var fs = require('fs');
-    var path = require('path'); 
-    
-    //Return list of artists to load on the artists page
-    fs.readdir("views/bass-tabs/artists", function (err, artists) {
-        if(err){
-            console.error("Could not list the directory.", err);
-        }
-        res.render("bass-tabs/artists", {artists: artists});
+router.get("/", function(req,res) {  
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("BassTabs");
+        dbo.collection("artists").find({}).toArray(function(err, result) {
+        if (err) throw err;
+            res.render("bass-tabs/artists", {artists: result});
+            db.close();
+        });
     });
 });
 
 //Artist Page Route (List of Songs)
 router.get("/:artist", function(req, res) {
-    var fs = require('fs');
-    var path = require('path');
-    var directoryName;
-    var artistPath;
-    var artistName = req.params.artist;
+    var artistUrl = req.params.artist;
+    var artistName;
 
-    //Find artist using path name
-    fs.readdir("views/bass-tabs/artists", function (err, artists) {
-        if(err){
-            res.redirect("/bass-tabs");
-        }
-        for (var i=0; i < artists.length; i++) {
-            directoryName = artists[i];
-            if (directoryName.replace(/ /g, "").toLowerCase() == artistName.toString()) {
-                artistPath = "views/bass-tabs/artists/" + directoryName;
-
-                //Return list of songs from the artist
-                fs.readdir(artistPath, function(err, songs) {
-                    if(err){
-                        //console.log("Could not find songs", err);
-                        res.redirect("/bass-tabs");
-                    }
-                    res.render("bass-tabs/songs", {artist: directoryName, songs: songs});
-                });
-                break;
-            };
-        };
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("BassTabs");
+        dbo.collection("artists").findOne({artistUrl: artistUrl}, function(err, result) {
+            if (err) throw err;
+            artistName = result.artist;
+            dbo.collection("songs").find({artist: artistName}).toArray(function(err, result) {
+                if (err) throw err;
+                res.render("bass-tabs/songs", {artist: artistName, artistUrl: artistUrl, songs: result})
+                db.close();
+            });
+        });
     });
 });
 
 //Tab Route
 router.get("/:artist/:song", function(req,res) {
-    var fs = require('fs');
-    var path = require('path');
     var artistUrl = req.params.artist
-    var songName = req.params.song.slice(0, -9).replace(/-/g, " ");
-    var filePath, directoryName, artistName;
-    
-    
-    //Get Tab Path using artist URL with no spaces
-    var artists = fs.readdirSync("views/bass-tabs/artists");
-    for (var i=0; i < artists.length; i++) {
-        directoryName = artists[i].replace(/ /g, "").toLowerCase();
-        if (directoryName == artistUrl) {
-            artistName = artists[i];
-            var hyphenatedSong = songName.replace(/ /g, "-")
-            filePath = "artists/" + artistName + "/" + hyphenatedSong + "-bass-tab.html";  //Path used to open file EX: artists/The 1975/Settle-Down-Bass-Tab.html
-            break;
-        };
-    };
-    //Load bass tab into HTML Template tab
-    res.render("bass-tabs/tab", {artistName: artistName, filePath: filePath, songName, songName})
+    var songUrl = req.params.song
+    var filePath;
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("BassTabs");
+        dbo.collection("songs").findOne({songUrl: songUrl}, function(err, song) {
+            if (err) throw err;
+
+            //Load bass tab into HTML Template tab
+            filePath = "artists/" + song.artist + "/" + songUrl + ".html";
+            res.render("bass-tabs/tab", {song: song, filePath: filePath});
+            db.close();
+         });
+    });
 });
 
 module.exports = router;

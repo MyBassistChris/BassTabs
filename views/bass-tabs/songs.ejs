@@ -10,10 +10,11 @@
         <h1><%=artist%></h1>
         <br>
         <div class="list-group">
+
+            <!-- Print list of song by artist -->
             <% songs.forEach(function(song) { %>
-                <% var songUrl = artist.replace(/ /g, "") + "/" + song.slice(0,-5); %>
-                <% var songTitle = song.slice(0, -14).replace(/-/g, " "); %>
-                <a class="list-group-item" href=<%= songUrl.toLowerCase() %>><%= songTitle %></a> <!-- Replace all with /phrase/g -->
+                <% var songUrl = artistUrl + "/" + song.songUrl; %>
+                <a class="list-group-item" href=<%= songUrl %>><%= song.songTitle %></a>
             <% }); %>
         </div>
         <br>
