@@ -4,6 +4,7 @@ var express         = require("express"),
     hostname        = '127.0.0.1',
     port            = 3000,
     bassTabRoute    = require("./routes/bassTabs");
+    top10Route      = require("./routes/top-10-bass");
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));
@@ -14,9 +15,10 @@ app.get("/", function(req, res) {
 
 app.use("/bass-tabs", bassTabRoute);
 
-//Gear Page
-app.get("/gear", function(req,res) {
-    res.render("gear/gear");
+app.use("/top-10-bass", top10Route);
+
+app.get("/about", function(req,res) {
+    res.render("about/about");
 });
 
 app.listen(port, hostname, function(){

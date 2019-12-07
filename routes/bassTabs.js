@@ -5,10 +5,10 @@ var url = "mongodb+srv://Admin:guitar66@basstabs-gf3pp.mongodb.net/test?retryWri
 
 //List of Bass Tabs/Artists
 router.get("/", function(req,res) {  
-    MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, {useUnifiedTopology: true}, function(err, db) {
         if (err) throw err;
         var dbo = db.db("BassTabs");
-        dbo.collection("artists").find({}).toArray(function(err, result) {
+        dbo.collection("artists").find({}).sort({artist: 1}).toArray(function(err, result) {
         if (err) throw err;
             res.render("bass-tabs/artists", {artists: result});
             db.close();
@@ -21,13 +21,13 @@ router.get("/:artist", function(req, res) {
     var artistUrl = req.params.artist;
     var artistName;
 
-    MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, {useUnifiedTopology: true}, function(err, db) {
         if (err) throw err;
         var dbo = db.db("BassTabs");
         dbo.collection("artists").findOne({artistUrl: artistUrl}, function(err, result) {
             if (err) throw err;
             artistName = result.artist;
-            dbo.collection("songs").find({artist: artistName}).toArray(function(err, result) {
+            dbo.collection("songs").find({artist: artistName}).sort({songTitle: 1}).toArray(function(err, result) {
                 if (err) throw err;
                 res.render("bass-tabs/songs", {artist: artistName, artistUrl: artistUrl, songs: result})
                 db.close();
@@ -42,7 +42,7 @@ router.get("/:artist/:song", function(req,res) {
     var songUrl = req.params.song
     var filePath;
 
-    MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, {useUnifiedTopology: true}, function(err, db) {
         if (err) throw err;
         var dbo = db.db("BassTabs");
         dbo.collection("songs").findOne({songUrl: songUrl}, function(err, song) {

@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+    <title>Top 10 Bass</title>
+<% include ../partials/navbar %>
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <br>
+        <h1>Top 10 Bass</h1>
+        <br>
+        <div class="list-group">
+
+            <!-- Print list of Top 10 Songs -->
+            <% songs.forEach(function(song) { %>
+                 <% for(var i=0; i < artists.length; i++) { %>
+                    <% if(song.artist == artists[i].artist) { %>
+                        <% var songUrl = "bass-tabs/" + artists[i].artistUrl + "/" + song.songUrl; %>
+                        <a class="list-group-item" href=<%= songUrl %>><%= song.songTitle %></a>
+                        <% break %>
+                    <% } %>
+                 <% } %>
+            <% }); %>
+        </div>
+        <br>
+        <br>
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<% include ../partials/footer %>
