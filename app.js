@@ -23,8 +23,8 @@ app.get("/about", function(req,res) {
     res.render("about/about");
 });
 
-app.listen(port, hostname, function(){
-  console.log("Bass tabs started");
-});
+//app.listen(port, hostname, function(){
+//  console.log("Bass tabs started");
+//});
 
-//http.createServer(app).listen(process.env.PORT || 8000)
+http.createServer(app).listen(process.env.PORT || 8000)
