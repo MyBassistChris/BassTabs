@@ -2,7 +2,7 @@ var express         = require("express"),
     app             = express(),
     http            = require("http"),
     hostname        = '127.0.0.1',
-    port            = 3000,
+    port            = 8000,
     bassTabRoute    = require("./routes/bassTabs");
     top10Route      = require("./routes/top-10-bass");
 
@@ -21,8 +21,8 @@ app.get("/about", function(req,res) {
     res.render("about/about");
 });
 
-//app.listen(port, hostname, function(){
-//  console.log("Bass tabs started");
-//});
+app.listen(port, hostname, function(){
+  console.log("Bass tabs started");
+});
 
-http.createServer(app).listen(process.env.PORT || 8000)
+//http.createServer(app).listen(process.env.PORT || 8000)
