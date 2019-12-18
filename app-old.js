@@ -1,13 +1,13 @@
 var express         = require("express"),
     app             = express(),
-    http            = require("http"),
-    hostname        = '127.0.0.1',
-    port            = 3000,
     bassTabRoute    = require("./routes/bassTabs");
-    top10Route      = require("./routes/top-10-bass");
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));
+
+//requiring routes
+//var home    = require("./routes/comments"),
+//var router  = express.Router();
 
 app.get("/", function(req, res) {
     res.render("Home/home");
@@ -15,12 +15,16 @@ app.get("/", function(req, res) {
 
 app.use("/bass-tabs", bassTabRoute);
 
-app.use("/top-10-bass", top10Route);
+//Top 10 Bass
+app.get("/top-10-bass", function(req,res) {
+    res.render("Top 10 Bass/top-10-bass")
+})
 
-app.get("/about", function(req,res) {
-    res.render("about/about");
+//Gear Page
+app.get("/gear", function(req,res) {
+    res.render("Gear/gear");
 });
 
-app.listen(port, hostname, function(){
+app.listen(process.env.PORT, process.env.IP, function(){
   console.log("Bass tabs started");
 });
