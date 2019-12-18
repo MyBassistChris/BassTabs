@@ -1,6 +1,7 @@
 var express         = require("express"),
     app             = express(),
     http            = require("http"),
+    path            = require("path"),
     hostname        = '127.0.0.1',
     port            = 8000,
     bassTabRoute    = require("./routes/bassTabs");
