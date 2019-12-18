@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));
 
 app.get("/", function(req, res) {
-    res.render("Home/home");
+    res.render("home/home");
 });
 
 app.use("/bass-tabs", bassTabRoute);
