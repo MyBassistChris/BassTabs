@@ -7,6 +7,7 @@ var express         = require("express"),
     top10Route      = require("./routes/top-10-bass");
 
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(__dirname + "/public"));
 
 app.get("/", function(req, res) {
@@ -21,8 +22,8 @@ app.get("/about", function(req,res) {
     res.render("about/about");
 });
 
-//app.listen(port, hostname, function(){
-//  console.log("Bass tabs started");
-//});
+app.listen(port, hostname, function(){
+  console.log("Bass tabs started");
+});
 
-http.createServer(app).listen(process.env.PORT || 8000)
+//http.createServer(app).listen(process.env.PORT || 8000)
