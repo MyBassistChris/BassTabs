@@ -23,6 +23,10 @@ app.get("/about", function(req,res) {
     res.render("about/about");
 });
 
+app.get("/gear", function(req,res) {
+    res.render("gear/gear");
+})
+
 //app.listen(port, hostname, function(){
 //  console.log("Bass tabs started");
 //});
