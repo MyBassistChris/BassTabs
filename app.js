@@ -8,7 +8,7 @@ var express         = require("express"),
     top10Route      = require("./routes/top-10-bass");
 
 app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
+app.set('views', path.join(__dirname, '/views'));
 app.use(express.static(__dirname + "/public"));
 
 app.get("/", function(req, res) {
