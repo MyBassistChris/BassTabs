@@ -19,10 +19,6 @@ app.use("/bass-tabs", bassTabRoute);
 
 app.use("/top-10-bass", top10Route);
 
-app.get("/about", function(req,res) {
-    res.render("about/about");
-});
-
 app.get("/gear", function(req,res) {
     res.render("gear/gear");
 })
