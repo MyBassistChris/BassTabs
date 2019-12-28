@@ -6,6 +6,7 @@ var express         = require("express"),
     port            = 8000,
     bassTabRoute    = require("./routes/bassTabs");
     top10Route      = require("./routes/top-10-bass");
+    gearRoute       = require("./routes/gear");
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
@@ -19,9 +20,7 @@ app.use("/bass-tabs", bassTabRoute);
 
 app.use("/top-10-bass", top10Route);
 
-app.get("/gear", function(req,res) {
-    res.render("gear/gear");
-})
+app.use("/gear", gearRoute);
 
 //app.listen(port, hostname, function(){
 //  console.log("Bass tabs started");
