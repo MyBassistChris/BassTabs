@@ -2,15 +2,35 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
     <title>Gear</title>
 <% include ../partials/navbar %>
-
 <br>
 <h2 class="tc">Current Gear</h2>
 <br>
-<h4 class="tc">Coming soon...</h4>
+<div class="row" style="display: flex">
+    <% currentGear.forEach(function(gear) { %>
+        <div class="col-md-3 col-sm-6">
+            <div class="gear tc dib br3 pa3 ma2 grow bw2 shadow-5 w-100">
+                <img class="gearimg" src="img/<%=gear.image %>">
+                <br>
+                <%= gear.gear %>
+            </div>
+        </div>
+    <% }); %>
 </div>
-
 <br>
 <br>
 <br>
+<h2 class="tc">Other Gear</h2>
+<br>
+<div class="row" style="display: flex">
+    <% otherGear.forEach(function(gear) { %>
+        <div class="col-md-3 col-sm-6">
+            <div class="gear tc dib br3 pa3 ma2 grow bw2 shadow-5 w-100">
+                <img class="gearimg" src="img/<%=gear.image %>">
+                <br>
+                <%= gear.gear %>
+            </div>
+        </div>
+    <% }); %>
+</div>
 
 <% include ../partials/footer %>

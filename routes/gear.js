@@ -10,8 +10,10 @@ router.get("/", function(req,res) {
         var dbo = db.db("BassTabs");
         dbo.collection("gear").find({current: 1}).toArray(function(err, current) {
             if (err) throw err;
-                res.render("gear/gear", {currentGear: current});
+            dbo.collection("gear").find({current: 0}).toArray(function(err, other) {
+                res.render("gear/gear", {currentGear: current, otherGear: other});
                 db.close();
+            });
         });
     });
 });

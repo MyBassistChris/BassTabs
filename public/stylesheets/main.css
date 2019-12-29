@@ -2,9 +2,9 @@ body {
   font-family: 'Squada One', cursive;
 }
 
-img {
-  max-width:100%;
-  max-height:100%;
+.gearimg {
+  height: 300px;
+  object-fit: contain;
 }
 
 ul {
