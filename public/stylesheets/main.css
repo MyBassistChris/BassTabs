@@ -2,9 +2,9 @@ body {
   font-family: 'Squada One', cursive;
 }
 
-.gearimg {
-  height: 300px;
-  object-fit: contain;
+iframe{
+  max-width: 80%;
+  max-height: 80%;
 }
 
 ul {
@@ -17,6 +17,7 @@ display: inline-block;
   padding-top: 70px;
   padding-bottom: 70px;
   opacity: 0.9;
+  max-width: 100%;
 }
 
 .coming-soon {
@@ -32,6 +33,11 @@ display: inline-block;
   padding-bottom: 20px;
   text-align: center;
   background-color: #373737;
+}
+
+.gearimg {
+  height: 300px;
+  object-fit: contain;
 }
 
 .home {
