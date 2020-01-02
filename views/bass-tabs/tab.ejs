@@ -3,8 +3,9 @@
     <title><%= song.songTitle %> Bass Tab</title>
 <% include ../partials/navbar %>
 
+<div class="container">
 <div class="row">
-    <div class="col-10 offset-sm-1">
+    <div class="col-md-7 col-sm-12">
         <table class="table">
             <thead>
                 <tr>
@@ -26,15 +27,15 @@
                 </tr>
             </tbody>
         </table>
-
-        <div style="width:100%;overflow:auto;white-space:nowrap;font-size:small;line-height:normal"><font face="courier new, monospace">
-        
-        <div id="tab">
-            <%- include(filePath) %>
+</div>
+<div class="row">
+    <div class="col-12">    
+            <div class="tab" id="tab">
+                <%- include(filePath) %>
+            </div>
         </div>
-        
-        </font></div>
     </div>
+</div>
 </div>
 
 <% include ../partials/footer %>
