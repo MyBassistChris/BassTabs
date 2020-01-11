@@ -14,9 +14,6 @@ display: inline-block;
 /* Custom Classes */ 
 
 .banner {
-  padding-top: 70px;
-  padding-bottom: 70px;
-  opacity: 0.9;
   max-width: 100%;
 }
 
@@ -44,7 +41,7 @@ display: inline-block;
   padding-top: 50px;
   padding-bottom: 70px;
   opacity: 0.9;
-  background-color: #46b976;
+  background-color: #179b53;
 }
 
 .iframe-container {
@@ -120,7 +117,7 @@ display: inline-block;
 }
 
 .fa:hover {
-    background: #46b976;
+    background: #179b53;
     opacity: 0.7;
     transition-duration: .6s;
 }
