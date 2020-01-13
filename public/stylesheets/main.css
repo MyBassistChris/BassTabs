@@ -1,5 +1,13 @@
 body {
-  font-family: 'Squada One', cursive;
+  font-family: 'Squada One',  "Courier New", serif;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+
+html {
+  position: relative;
+  min-height: 100vh;
 }
 
 iframe{
@@ -8,7 +16,7 @@ iframe{
 }
 
 ul {
-display: inline-block;
+  display: inline-block;
 }
 
 /* Custom Classes */ 
@@ -20,16 +28,19 @@ display: inline-block;
 .coming-soon {
   background-color: #FFFFFF;
   width: 640px;
-  max-width: 100%;
+  max-width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .footer {
-  padding-top: 10px;
-  padding-bottom: 20px;
-  text-align: center;
   background-color: #373737;
+  bottom: 0;
+  padding: 10px;
+  height: 60px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 
 .gearimg {
@@ -38,7 +49,7 @@ display: inline-block;
 }
 
 .home {
-  padding-top: 50px;
+  padding-top: 5px;
   padding-bottom: 70px;
   opacity: 0.9;
   background-color: #179b53;
@@ -77,7 +88,7 @@ display: inline-block;
   opacity: 1 !important;
   display: inline;
 }
-.navbar-collapse {
+.navbar-expand-sm {
   background-color: #373737;
 }
 
