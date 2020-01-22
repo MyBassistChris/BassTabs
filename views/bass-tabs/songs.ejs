@@ -2,7 +2,7 @@
     <link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
 <% include ../partials/navbar %>
 
-<div class="row">
+<div class="row b">
     <div class="col-10 offset-1">
         <br>
         <h1><%=artist%></h1>
@@ -12,7 +12,7 @@
             <!-- Print list of song by artist -->
             <% songs.forEach(function(song) { %>
                 <% var songUrl = artistUrl + "/" + song.songUrl; %>
-                <a class="list-group-item" href=<%= songUrl %>><%= song.songTitle %></a>
+                <a class="list-group-item b" href=<%= songUrl %>><%= song.songTitle %></a>
             <% }); %>
         </div>
         <br>

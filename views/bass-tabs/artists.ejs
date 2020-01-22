@@ -6,12 +6,12 @@
 
 <div class="row">
     <div class="col-10 offset-1">
-        <h1>Artists</h1>
+        <h1 class="b">ARTISTS</h1>
         <div class="list-group" id="artists">
             <input class="form-control" id="myInput" type="text" placeholder="Search...">
             <br>
             <% artists.forEach(function(artist){ %>  
-                <a class="list-group-item" href="/bass-tabs/<%= artist.artistUrl %>"><%= artist.artist %></a>   
+                <a class="list-group-item b" href="/bass-tabs/<%= artist.artistUrl %>"><%= artist.artist %></a>   
             <% }); %>
         </div>
         <br>

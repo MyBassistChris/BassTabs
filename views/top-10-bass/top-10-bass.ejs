@@ -7,7 +7,7 @@
     <div class="col-1"></div>
     <div class="col-10">
         <br>
-        <h1>Top 10 Bass</h1>
+        <h1 class="b">TOP 10 BASS</h1>
         <br>
         <div class="list-group">
 
@@ -16,7 +16,7 @@
                  <% for(var i=0; i < artists.length; i++) { %>
                     <% if(song.artist == artists[i].artist) { %>
                         <% var songUrl = "bass-tabs/" + artists[i].artistUrl + "/" + song.songUrl; %>
-                        <a class="list-group-item" href=<%= songUrl %>><%= song.songTitle %></a>
+                        <a class="list-group-item b" href=<%= songUrl %>><%= song.songTitle %></a>
                         <% break %>
                     <% } %>
                  <% } %>

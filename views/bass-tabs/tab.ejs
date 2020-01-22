@@ -4,8 +4,9 @@
 <% include ../partials/navbar %>
 
 <div class="container">
+<br><br>
 <div class="row">
-    <div class="col-md-7 col-sm-12">
+    <div class="col-md-6 col-sm-12">
         <table class="table">
             <thead>
                 <tr>
@@ -27,6 +28,12 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="col-md-6 col-sm-12">
+        <div class="sticky-top" id="video">
+        <!--Video inserted here with JS-->
+        </div>
+    </div>
 </div>
 <div class="row">
     <div class="col-12">    
@@ -45,7 +52,8 @@
 $(document).ready(function() {
     if($(".videoUrl").length > 0) {
         var videoUrl = document.querySelector(".videoUrl").innerHTML;
-        document.querySelector(".videoUrl").innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + videoUrl + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+        document.querySelector(".videoUrl").innerHTML = "";
+        document.querySelector("#video").innerHTML = "<iframe width=\"425\" height=\"260\" src=\"https://www.youtube.com/embed/" + videoUrl + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
     }
     if($("#tuning").length > 0) {
         document.querySelector("#tuning").innerHTML = document.querySelector(".tuning").innerHTML;

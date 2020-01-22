@@ -2,43 +2,49 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
     <title>My Bassist Chris</title>
 <% include ../partials/navbar %>
-    
+<script src="javascript/home.js"></script>
+
+<div class="home">
 <div class="banner">
     <img src="img/banner.png" alt="My Bassist Chris" border="0">
 </div>
 
-<div class="home tc">
-    <h1><b>Latest Video</b></h1>
-    <br>
-    <iframe width="640" height="360" src="https://www.youtube.com/embed/?listType=playlist&list=UU87a3QDWF6Q3uLBZk8VEwog" frameborder="0" allowfullscreen></iframe>
-    <br><br>
-    <h3>Covers/Videos Coming Soon</h3>
-    <br>
-    <div class="list-group coming-soon">
-        <a href ="bass-tabs/black-veil-brides/the-vengeance-bass-tab" class="list-group-item">Black Veil Brides - The Vengeance Bass Tab</a>
-        <span class="list-group-item">Squier Vintage Modified Jaguar Bass Special SS Demo</span>
-        <span class="list-group-item">Bass Synth Shootout</span>
+<div class="container-fluid">
+    <div class="row home-middle row bw2 shadow-5 bg-dark-green">
+        <div class="col-lg-6 col-md-10">
+            <img id="aboutimg" src="img/about.jpg">
+            <!--<img id="aboutimg" data-aos="fade-right" src="img/about.jpg">-->
+        </div>
+
+        <div class="col-lg-6 col-md-10 mx-auto about"><br>
+        <h1 class="tc b">ABOUT</h1>
+        <p>I'm Chris Khalife and I upload bass videos to YouTube under the name "My Bassist Chris". I have been uploading videos for nine years and have been playing bass for fourteen years. My first instrument I learned at the age of nine was piano, but transitioned to guitar at age twelve and bass shortly after. I chose the name My Bassist Chris for two reasons: To pay homage to my favorite band My Chemical Romance and because being a bassist in many bands people would refer to me as my bassist Chris. 
+        </p>
+    
+        <p>I strive to make my bass covers as accurate as possible. I strongly believe it extremely challenging to play a studio bass line note for note as opposed to a cover that is 90% accurate. While my channel first started as purely bass covers, I eventually started making videos on bass gear. I have a huge addiction to buying pedals for bass and love to demonstrate all of pedals I have collected over the years.
+       </p>
+    
+        <p>Feel free to look around the website for my bass tabs, gear collection, and social media links. Also feel free to reach out to me anytime on my social media platforms!</p>
+        </div>
     </div>
-</div>
 
-<div class="row" id="about">
-    <div class="col-10 offset-1 ">
-    <h1 class="text-center">About</h1>
-    <p>I'm Chris Khalife and I upload bass videos to YouTube under the name "My Bassist Chris". I have been uploading videos for nine years and have been playing bass for fourteen years. My first instrument I learned at the age of nine was piano, but transitioned to guitar at age twelve and bass shortly after. My channel mainly consists of bass covers and bass gear demos. I chose the name My Bassist Chris for two reasons: To pay homage to my favorite band My Chemical Romance and because being a bassist in many bands people would refer to me as my bassist Chris. 
-    </p>
+    <div class="home-bottom row tc h-100 bg-washed-green gray-text">
+        <div class="col-lg-6 col-md-10 mx-auto">
+            <h1 class="b">LATEST VIDEO</h1>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=UU87a3QDWF6Q3uLBZk8VEwog" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
 
-    <p>I strive to make my bass covers as accurate as possible. I strongly believe it extremely challenging to play a studio bass line note for note as opposed to a cover that is 90% accurate. Learning professional bass lines (even the simple ones) helps me compose the best bass lines for my songs and has greatly excelled my ear training. I only do improv or stray away from the original bass line when I feel there is a good amount of space in the song for crazy bass parts.
-    </p>
-
-    <p>While my channel first started as purely bass covers, I eventually started making videos on bass gear. I have a huge addiction to buying pedals for bass and love to demonstrate all of pedals I have collected over the years. I notice that there are many gear demos that drag on too long, so I always try to keep my demonstrations short. While I could go into an in-depth demonstration for each pedal, I'm much prefer to try to sell you a pedal in a 2-minute demo since there are usually only 3-4 key sounds that most players will find usable.
-    </p>
-
-    <p>Feel free to look around the website for my bass tabs, gear collection, and social media links. Also feel free to reach out to me anytime on my social media platforms!</p>
+        <div class="col-lg-6 col-md-10 mx-auto">
+            <h1 class="b">VIDEO SCHEDULE</h1>
+            <div class="video-schedule list-group tc">
+                <a href ="bass-tabs/black-veil-brides/the-vengeance-bass-tab" class="list-group-item schedule-item gray-text">Black Veil Brides - The Vengeance Bass Tab</a>
+                <span class="list-group-item schedule-item">Squier Vintage Modified Jaguar Bass Special SS Demo</span>
+                <span class="list-group-item schedule-item">Bass Synth Pedal Shootout</span>
+            </div>
+        </div>
     </div>
-</div>
 
-<br>
-<br>
-<br>
+</div>
+</div>
 
 <% include ../partials/footer %>
