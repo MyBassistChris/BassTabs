@@ -2,11 +2,12 @@
     <link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
     <title><%= song.songTitle %> Bass Tab</title>
 <% include ../partials/navbar %>
+<script src="javascript/tabjs"></script>
 
-<div class="container">
+<div class="container-fluid tab-container">
 <br><br>
 <div class="row">
-    <div class="col-md-6 col-sm-12">
+    <div class="col-lg-6 col-md-10">
         <table class="table">
             <thead>
                 <tr>
@@ -29,7 +30,7 @@
             </tbody>
         </table>
     </div>
-    <div class="col-md-6 col-sm-12">
+    <div class="col-lg-6 col-md-10">
         <div class="sticky-top" id="video">
         <!--Video inserted here with JS-->
         </div>
@@ -50,10 +51,19 @@
 <script>
 
 $(document).ready(function() {
-    if($(".videoUrl").length > 0) {
+    if($(".videoUrl").length > 0) { //If tab is associated with video
         var videoUrl = document.querySelector(".videoUrl").innerHTML;
         document.querySelector(".videoUrl").innerHTML = "";
-        document.querySelector("#video").innerHTML = "<iframe width=\"425\" height=\"260\" src=\"https://www.youtube.com/embed/" + videoUrl + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+        var containerWidth = $(".tab-container").width();
+        var tabWidth = $(".tab").width();
+        console.log(containerWidth + " " + tabWidth);
+        var widthDiff = containerWidth - tabWidth;
+        if(widthDiff < 400) {
+            document.querySelector("#video").innerHTML = "<iframe width=\"425\" height=\"260\" src=\"https://www.youtube.com/embed/" + videoUrl + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+        }
+        else {
+            document.querySelector("#video").innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + videoUrl + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+        }
     }
     if($("#tuning").length > 0) {
         document.querySelector("#tuning").innerHTML = document.querySelector(".tuning").innerHTML;

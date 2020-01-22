@@ -83,6 +83,10 @@ ul {
   opacity: 0.9;
 }
 
+.latest-video {
+  margin-bottom: 40px;
+}
+
 .main {
   background-color: rgba(23, 155, 83, .8);
   border-color: white;
@@ -112,12 +116,16 @@ ul {
 }
 
 .tab {
-  width:100%;
+  display: inline-block;
   overflow:auto;
   white-space:nowrap;
   font-size:small;
   line-height:normal;
   font-family: "courier new", monospace;
+}
+
+.tab-container {
+  margin-left: 20px;
 }
 
 .thumbnail img {
@@ -262,5 +270,11 @@ ul {
   .topnav .btn {
     font-size: 12px;
     padding: 14px 6px;
+  }
+}
+
+@media (max-width: 1000px) {
+  #video {
+    position: static;
   }
 }
