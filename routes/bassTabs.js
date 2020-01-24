@@ -45,14 +45,24 @@ router.get("/:artist/:song", function(req,res) {
     MongoClient.connect(url, {useUnifiedTopology: true}, function(err, db) {
         if (err) throw err;
         var dbo = db.db("BassTabs");
-        dbo.collection("songs").findOne({songUrl: songUrl}, function(err, song) {
+        dbo.collection("artists").findOne({artistUrl: artistUrl}, function(err, result) {
             if (err) throw err;
+            artistName = result.artist;
+            dbo.collection("songs").findOne({songUrl: songUrl, artist: artistName}, function(err, song) {
+                if (err) throw err;
 
-            //Load bass tab into HTML Template tab
-            filePath = "artists/" + song.artist + "/" + songUrl + ".html";
-            res.render("bass-tabs/tab", {song: song, filePath: filePath});
-            db.close();
-         });
+                //Load bass tab into HTML Template tab
+                filePath = "artists/" + song.artist + "/" + songUrl + ".html";
+                res.render("bass-tabs/tab", {song: song, filePath: filePath}, function(err, html) {
+                    if(err) {
+                        res.render("bass-tabs/failed"); // File doesn't exist
+                    } else {
+                        res.send(html);
+                    }
+                });
+                db.close();
+             });
+        });
     });
 });
 
