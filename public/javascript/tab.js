@@ -21,11 +21,11 @@ function addVideoAndTuning() {
 }
 
 function videoWidth() {
-    if(document.querySelector("#video").length > 0) {
+    if(videoUrl.length > 0) {
         var containerWidth = $(".tab-container").width();
         var tabWidth = $(".tab").width();
         var widthDiff = containerWidth - tabWidth;
-        if(widthDiff < 340) {
+        if(widthDiff < 400) {
             document.querySelector("#video").innerHTML = "<iframe width=\"425\" height=\"260\" src=\"https://www.youtube.com/embed/" + videoUrl + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
         }
         else {
