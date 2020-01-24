@@ -34,7 +34,6 @@ function animateLength() {
 var animate = false;
 window.onscroll = function () {
     widthArray = animateLength();
-    console.log(window.innerWidth);
     if (window.pageYOffset >= widthArray[0] && window.pageYOffset <= widthArray[1] && !animate) {
         $("#aboutimg").animate({left: "+=" + widthArray[2]}, 450);
         animate = true;
