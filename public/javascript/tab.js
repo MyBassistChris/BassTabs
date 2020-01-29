@@ -25,7 +25,7 @@ function videoWidth() {
         var containerWidth = $(".tab-container").width();
         var tabWidth = $(".tab").width();
         var widthDiff = containerWidth - tabWidth;
-        if(widthDiff < 400) {
+        if(widthDiff < 440) {
             document.querySelector("#video").innerHTML = "<iframe width=\"425\" height=\"260\" src=\"https://www.youtube.com/embed/" + videoUrl + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
         }
         else {
