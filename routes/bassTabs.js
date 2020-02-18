@@ -40,8 +40,7 @@ router.get("/:artist", function(req, res) {
 router.get("/:artist/:song", function(req,res) {
     var artistUrl = req.params.artist
     var songUrl = req.params.song
-    var filePath;
-
+    var filePath, fullArtistUrl;
     MongoClient.connect(url, {useUnifiedTopology: true}, function(err, db) {
         if (err) throw err;
         var dbo = db.db("BassTabs");
@@ -53,7 +52,8 @@ router.get("/:artist/:song", function(req,res) {
 
                 //Load bass tab into HTML Template tab
                 filePath = "artists/" + song.artist + "/" + songUrl + ".html";
-                res.render("bass-tabs/tab", {song: song, filePath: filePath}, function(err, html) {
+                fullArtistUrl = "/bass-tabs/" + artistUrl;
+                res.render("bass-tabs/tab", {song: song, artistUrl: fullArtistUrl, filePath: filePath}, function(err, html) {
                     if(err) {
                         res.render("bass-tabs/failed"); // File doesn't exist
                     } else {
